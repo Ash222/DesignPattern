@@ -1,0 +1,31 @@
+package com.learn.designpattern.behavioral.chainofresponsibility.p1;
+
+public abstract class AbsLogger {
+
+    protected AbsLogger nextHandler;
+    protected LoggerLevel loggerLevel;
+
+    protected void setNextHandler(final AbsLogger nextHandler) {
+
+        this.nextHandler = nextHandler;
+    }
+
+    protected void logMessage(final LoggerLevel loggerLevel, final String message) {
+
+        // if this is able to handle the message then process
+        // otherwise pass the handler to someone else to handle the message
+        if (loggerLevel == this.loggerLevel) {
+
+            displayMessage(message);
+            return;
+        }
+
+        // let the next handler manage the processing
+        if (this.nextHandler != null) {
+
+            this.nextHandler.logMessage(loggerLevel, message);
+        }
+    }
+
+    abstract void displayMessage(final String message);
+}
