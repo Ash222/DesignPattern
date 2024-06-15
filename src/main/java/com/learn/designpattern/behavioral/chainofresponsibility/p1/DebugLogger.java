@@ -1,12 +1,12 @@
 package com.learn.designpattern.behavioral.chainofresponsibility.p1;
 
 public class DebugLogger extends AbsLogger {
-
-    public DebugLogger(final LoggerLevel loggerLevel) {
-
-        this.loggerLevel = loggerLevel;
+    
+    public DebugLogger(LoggerLevel loggerLevel) {
+        
+        super(loggerLevel);
     }
-
+    
     @Override
     void displayMessage(String message) {
 

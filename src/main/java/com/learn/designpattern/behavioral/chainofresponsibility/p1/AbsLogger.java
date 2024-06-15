@@ -4,6 +4,11 @@ public abstract class AbsLogger {
 
     protected AbsLogger nextHandler;
     protected LoggerLevel loggerLevel;
+    
+    public AbsLogger(final LoggerLevel loggerLevel){
+        
+        this.loggerLevel=loggerLevel;
+    }
 
     protected void setNextHandler(final AbsLogger nextHandler) {
 
