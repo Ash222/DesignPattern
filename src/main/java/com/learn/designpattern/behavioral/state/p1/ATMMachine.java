@@ -1,5 +1,11 @@
 package com.learn.designpattern.behavioral.state.p1;
 
+/*
+* The problem with this code is that our ATMMachine has to be aware about all the
+* states. Rather it would be better for the Concrete state classes to change the states
+* by themselves. Machine in that case need not be aware of the states. This is fixed in
+*  p2 package code.
+* */
 public class ATMMachine implements IATMMachineState {
 
     private IATMMachineState atmMachineState;
