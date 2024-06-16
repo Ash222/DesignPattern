@@ -1,4 +1,4 @@
-package com.learn.designpattern.behavioral.chainofresponsibility.p1;
+package com.learn.designpattern.behavioral.chain_of_responsibility.p1;
 
 public class DebugLogger extends AbsLogger {
     
