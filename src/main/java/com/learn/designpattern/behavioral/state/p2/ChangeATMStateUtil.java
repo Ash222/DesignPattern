@@ -1,5 +1,7 @@
 package com.learn.designpattern.behavioral.state.p2;
 
+import org.jetbrains.annotations.NotNull;
+
 /*
  * This class is responsible to changing the state of the atm, rather than the state
  * concrete classes itself.
@@ -33,8 +35,9 @@ public final class ChangeATMStateUtil {
 	private ChangeATMStateUtil() {
 	}
 	
-	public static void changeState(final ATMState atmState, final ATM atm) {
-
+	public static void changeState(@NotNull final ATMState atmState,
+	                               @NotNull final ATM atm) {
+		
 		IState state;
 		
 		// System.out.println("ChangeATMStateUtil :: changeState :: state ::: " + atmState +
