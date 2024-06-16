@@ -4,11 +4,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		IVehicle vehicle = null;
-		
-		if (vehicle == null) {
-			vehicle = new NullVehicle();
-		}
+		// let assume this is coming from other method, then the advantage with this
+		// pattern is that we don't have to do null on the vehicle object.
+		IVehicle vehicle = new NullVehicle();
 		
 		vehicle.drive();
 	}
