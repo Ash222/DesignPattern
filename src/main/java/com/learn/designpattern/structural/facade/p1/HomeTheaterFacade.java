@@ -1,9 +1,9 @@
 package com.learn.designpattern.structural.facade.p1;
 
-import com.learn.designpattern.structural.facade.subsystems.Amplifier;
-import com.learn.designpattern.structural.facade.subsystems.DVDPlayer;
-import com.learn.designpattern.structural.facade.subsystems.Projector;
-import com.learn.designpattern.structural.facade.subsystems.Screen;
+import com.learn.designpattern.structural.facade.p1.subsystems.Amplifier;
+import com.learn.designpattern.structural.facade.p1.subsystems.DVDPlayer;
+import com.learn.designpattern.structural.facade.p1.subsystems.Projector;
+import com.learn.designpattern.structural.facade.p1.subsystems.Screen;
 
 public class HomeTheaterFacade {
 	

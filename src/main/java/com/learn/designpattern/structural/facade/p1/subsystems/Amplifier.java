@@ -1,4 +1,4 @@
-package com.learn.designpattern.structural.facade.subsystems;
+package com.learn.designpattern.structural.facade.p1.subsystems;
 
 public class Amplifier {
 	
