@@ -9,7 +9,12 @@ public class ATM implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private IState state;
 	
-	private ATM() {
+	private ATM() throws ReflectiveOperationException {
+		
+		if (ATMHolder.atm != null) {
+			throw new ReflectiveOperationException("Creating another class of this via " +
+					"reflection in invalid");
+		}
 		
 		// this will set the initial state of the atm
 		ChangeATMStateUtil.changeState(ATMState.INITIAL, this);
@@ -36,7 +41,17 @@ public class ATM implements Serializable {
 	}
 	
 	private static final class ATMHolder {
-		private static final ATM atm = new ATM();
+		
+		private static final ATM atm;
+		
+		static {
+			
+			try {
+				atm = new ATM();
+			} catch (ReflectiveOperationException e) {
+				throw new RuntimeException(e);
+			}
+		}
 	}
 	
 	public static ATM getATM() {
@@ -44,7 +59,13 @@ public class ATM implements Serializable {
 	}
 	
 	@Serial
-	protected Object readResolve(){
+	protected Object readResolve() {
 		return getATM();
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException("Clone of this singleton class in not " +
+				"allowed");
 	}
 }

@@ -14,8 +14,11 @@ public class Main {
 		atm.insertCard();
 		atm.enterPIN();
 		atm.ejectCard();
+		atm.ejectCard();
 		atm.insertCard();
 		atm.enterPIN();
 		atm.withdrawMoney();
+		atm.withdrawMoney();
+		atm.ejectCard();
 	}
 }

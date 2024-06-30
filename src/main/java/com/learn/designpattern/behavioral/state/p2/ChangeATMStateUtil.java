@@ -38,17 +38,12 @@ public final class ChangeATMStateUtil {
 	public static void changeState(@NotNull final ATMState atmState,
 	                               @NotNull final ATM atm) {
 		
-		IState state;
-		
-		// System.out.println("ChangeATMStateUtil :: changeState :: state ::: " + atmState +
-		// 		" :: atm.hashCode ::: " + atm.hashCode());
-		
-		switch (atmState) {
+		final IState state = switch (atmState) {
 			
-			case PIN -> state = new CardPINState();
-			case WITHDRAW -> state = new CardWithdrawMoneyState();
-			default -> state = new NoCardState();
-		}
+			case PIN -> new CardPINState();
+			case WITHDRAW -> new CardWithdrawMoneyState();
+			default -> new NoCardState();
+		};
 		
 		// changing the atm atmState
 		atm.changeState(state);
