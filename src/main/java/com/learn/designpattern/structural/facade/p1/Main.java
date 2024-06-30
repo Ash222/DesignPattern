@@ -1,6 +1,4 @@
-package com.learn.designpattern.structural.facade;
-
-import com.learn.designpattern.structural.facade.p1.HomeTheaterFacade;
+package com.learn.designpattern.structural.facade.p1;
 
 public class Main {
 	
