@@ -1,4 +1,4 @@
-package com.learn.designpattern.design.pen;
+package com.learn.designpattern.lowleveldesign.pen;
 
 public class FountainWriteStrategy implements IWriteStrategy{
 	@Override
