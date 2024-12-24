@@ -1,6 +1,6 @@
 package com.learn.designpattern.behavioral.chain_of_responsibility.p1;
 
-public class DebugLogger extends AbsLogger {
+public final class DebugLogger extends AbsLogger {
     
     public DebugLogger(LoggerLevel loggerLevel) {
         

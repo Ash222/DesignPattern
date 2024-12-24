@@ -1,20 +1,11 @@
 package com.learn.designpattern.behavioral.chain_of_responsibility.p1;
 
 public class Main {
-
-    public static void main(String[] args) {
-
-        final AbsLogger logger = chainLogger();
-        logger.logMessage(LoggerLevel.DEBUG,"data store");
-        logger.logMessage(LoggerLevel.INFO,"data show");
-    }
-
-    private static AbsLogger chainLogger(){
-
-        AbsLogger infoLogger = new InfoLogger(LoggerLevel.INFO);
-        AbsLogger debugLogger = new DebugLogger(LoggerLevel.DEBUG);
-        infoLogger.setNextHandler(debugLogger);
-
-        return infoLogger;
-    }
+	
+	public static void main(String[] args) {
+		
+		final LoggerFacade logger = LoggerFacade.getInstance();
+		logger.debug("Main :: main :: some log data");
+		logger.info("Main :: main :: debugging data");
+	}
 }
