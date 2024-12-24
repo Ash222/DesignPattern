@@ -1,9 +1,9 @@
 package com.learn.designpattern.structural.adapter.p2;
 
 // this is adapter class
-public class LegacyRectangleAdapter implements IShape {
+public final class LegacyRectangleAdapter implements IShape {
 	
-	LegacyRectangle legacyRectangle;
+	private final LegacyRectangle legacyRectangle;
 	
 	public LegacyRectangleAdapter() {
 		this.legacyRectangle = new LegacyRectangle();
