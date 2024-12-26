@@ -20,26 +20,6 @@ public class ATM implements Serializable {
 		ChangeATMStateUtil.changeState(ATMState.INITIAL, this);
 	}
 	
-	public void insertCard() {
-		this.state.insertCard();
-	}
-	
-	public void ejectCard() {
-		this.state.ejectCard();
-	}
-	
-	public void enterPIN() {
-		this.state.enterPIN();
-	}
-	
-	public void withdrawMoney() {
-		this.state.withdrawMoney();
-	}
-	
-	public void changeState(final IState state) {
-		this.state = state;
-	}
-	
 	private static final class ATMHolder {
 		
 		private static final ATM atm;
@@ -66,6 +46,26 @@ public class ATM implements Serializable {
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		throw new CloneNotSupportedException("Clone of this singleton class in not " +
-				"allowed");
+				                                     "allowed");
+	}
+	
+	public void insertCard() {
+		this.state.insertCard();
+	}
+	
+	public void ejectCard() {
+		this.state.ejectCard();
+	}
+	
+	public void enterPIN() {
+		this.state.enterPIN();
+	}
+	
+	public void withdrawMoney() {
+		this.state.withdrawMoney();
+	}
+	
+	public void changeState(final IState state) {
+		this.state = state;
 	}
 }

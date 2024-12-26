@@ -2,7 +2,7 @@ package com.learn.designpattern.behavioral.mediator.p1;
 
 public class ToyAuction extends AuctionMediator {
 	
-	public ToyAuction(String auctionName) {
+	public ToyAuction(final String auctionName) {
 		super(auctionName);
 	}
 	

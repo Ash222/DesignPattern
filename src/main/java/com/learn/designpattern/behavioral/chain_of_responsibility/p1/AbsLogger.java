@@ -6,12 +6,10 @@ public abstract sealed class AbsLogger permits DebugLogger, InfoLogger {
 	protected final LoggerLevel loggerLevel;
 	
 	public AbsLogger(final LoggerLevel loggerLevel) {
-		
 		this.loggerLevel = loggerLevel;
 	}
 	
 	protected void setNextHandler(final AbsLogger nextHandler) {
-		
 		this.nextHandler = nextHandler;
 	}
 	
@@ -20,14 +18,12 @@ public abstract sealed class AbsLogger permits DebugLogger, InfoLogger {
 		// if this is able to handle the message then process
 		// otherwise pass the handler to someone else to handle the message
 		if (loggerLevel == this.loggerLevel) {
-			
 			displayMessage(message);
 			return;
 		}
 		
 		// let the next handler manage the processing
 		if (this.nextHandler != null) {
-			
 			this.nextHandler.logMessage(loggerLevel, message);
 		}
 	}

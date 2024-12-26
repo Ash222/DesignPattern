@@ -1,6 +1,6 @@
 package com.learn.designpattern.behavioral.null_object_pattern.p1;
 
-public class NullVehicle implements IVehicle{
+public final class NullVehicle implements IVehicle{
 	
 	@Override
 	public void drive() {

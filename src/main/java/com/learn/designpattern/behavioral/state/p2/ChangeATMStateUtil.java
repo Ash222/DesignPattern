@@ -36,10 +36,9 @@ public final class ChangeATMStateUtil {
 	}
 	
 	public static void changeState(@NotNull final ATMState atmState,
-	                               @NotNull final ATM atm) {
+			@NotNull final ATM atm) {
 		
 		final IState state = switch (atmState) {
-			
 			case PIN -> new CardPINState();
 			case WITHDRAW -> new CardWithdrawMoneyState();
 			default -> new NoCardState();

@@ -11,7 +11,6 @@ public class ATMMachine implements IATMMachineState {
     private IATMMachineState atmMachineState;
 
     public ATMMachine() {
-
         // because initially there is no card in the atm
         this.atmMachineState = new NoCardState();
     }
@@ -28,7 +27,6 @@ public class ATMMachine implements IATMMachineState {
 
         // after inserting the card the state of the machine is changed to CardPINState
         if (this.atmMachineState instanceof NoCardState) {
-
             setAtmMachineState(new CardPINState());
         }
     }
@@ -41,7 +39,6 @@ public class ATMMachine implements IATMMachineState {
 
         // after ejecting the card state of the atm changed to NoCardState
         if (this.atmMachineState instanceof NoCardState) {
-
             return;
         }
 
@@ -56,7 +53,6 @@ public class ATMMachine implements IATMMachineState {
 
         // after entering the PIN the atm state is changed to CardWithdrawMoneyState
         if (this.atmMachineState instanceof CardPINState) {
-
             setAtmMachineState(new CardWithdrawMoneyState());
         }
     }
@@ -69,7 +65,6 @@ public class ATMMachine implements IATMMachineState {
 
         // after withdrawing the money atm state is changed to NoCardState
         if (this.atmMachineState instanceof CardWithdrawMoneyState) {
-
             setAtmMachineState(new NoCardState());
         }
     }

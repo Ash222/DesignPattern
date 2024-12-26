@@ -2,7 +2,7 @@ package com.learn.designpattern.behavioral.strategy.p1;
 
 public class NormalVehicle extends AbsVehicle {
 	
-	public NormalVehicle(IDriveStrategy driveStrategy) {
+	public NormalVehicle(final IDriveStrategy driveStrategy) {
 		super(driveStrategy);
 	}
 	

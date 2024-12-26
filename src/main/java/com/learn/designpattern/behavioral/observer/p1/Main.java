@@ -4,11 +4,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		ISubscriber phone = new PhoneDisplay();
-		ISubscriber web = new WebDisplay();
 		WeatherStation weatherStation = new WeatherStation();
-		weatherStation.addObserver(phone);
-		weatherStation.addObserver(web);
+		weatherStation.addObserver(new PhoneDisplay());
+		weatherStation.addObserver(new WebDisplay());
 		weatherStation.setTemperature(10.2);
 	}
 }

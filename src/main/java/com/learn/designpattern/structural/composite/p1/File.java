@@ -2,7 +2,7 @@ package com.learn.designpattern.structural.composite.p1;
 
 public class File extends FileSystem {
 	
-	public File(String fileName) {
+	public File(final String fileName) {
 		super(fileName);
 	}
 	

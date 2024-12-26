@@ -5,8 +5,8 @@ import java.util.List;
 
 public abstract class AuctionMediator {
 	
-	protected String auctionName;
-	protected List<Bidder> bidderList;
+	protected final String auctionName;
+	protected final List<Bidder> bidderList;
 	
 	public AuctionMediator(final String auctionName) {
 		this.auctionName = auctionName;
@@ -19,7 +19,7 @@ public abstract class AuctionMediator {
 	
 	protected void sendBiddingNotification(final String bidderName, final int amount) {
 		
-		for (Bidder bidder : this.bidderList) {
+		for (final Bidder bidder : this.bidderList) {
 			
 			if (!bidder.getBidderName().equalsIgnoreCase(bidderName)) {
 				bidder.receiveBidNotification(amount);

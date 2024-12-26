@@ -1,6 +1,6 @@
 package com.learn.designpattern.creational.singleton.p2;
 
-public class Singleton {
+public final class Singleton {
 
     private static volatile Singleton INSTANCE;
 
@@ -14,7 +14,6 @@ public class Singleton {
             synchronized (Singleton.class) {
 
                 if (INSTANCE == null) {
-
                     INSTANCE = new Singleton();
                 }
             }

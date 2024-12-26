@@ -6,7 +6,6 @@ public class Bidder {
 	private final AuctionMediator auctionMediator;
 	
 	public Bidder(final String bidderName, final AuctionMediator auctionMediator) {
-		
 		this.bidderName = bidderName;
 		this.auctionMediator = auctionMediator;
 		this.auctionMediator.addBidder(this);
@@ -21,7 +20,7 @@ public class Bidder {
 	}
 	
 	public void receiveBidNotification(final int amount) {
-		System.out.println(
-				"A bid of amount ::: " + amount + " has been placed just now!");
+		System.out.println("A bid of amount ::: " + amount + " has been placed just " +
+				                   "now!");
 	}
 }

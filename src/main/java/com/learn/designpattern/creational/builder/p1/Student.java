@@ -1,6 +1,6 @@
 package com.learn.designpattern.creational.builder.p1;
 
-public class Student {
+public final class Student {
 
     private String name;
     private int age;
@@ -9,19 +9,17 @@ public class Student {
     private Student() {
     }
 
-    private Student(StudentBuilder studentBuilder) {
-
+    private Student(final StudentBuilder studentBuilder) {
         this.name = studentBuilder.name;
         this.age = studentBuilder.age;
         this.gradYear = studentBuilder.gradYear;
     }
 
     public static StudentBuilder getBuilder() {
-
         return new StudentBuilder();
     }
 
-    public static class StudentBuilder {
+    public static final class StudentBuilder {
 
         private String name;
         private int age;
@@ -30,26 +28,22 @@ public class Student {
         private StudentBuilder() {
         }
 
-        public StudentBuilder setName(String name) {
-
+        public StudentBuilder setName(final String name) {
             this.name = name;
             return this;
         }
 
-        public StudentBuilder setAge(int age) {
-
+        public StudentBuilder setAge(final int age) {
             this.age = age;
             return this;
         }
 
         public StudentBuilder setGradYear(int gradYear) {
-
             this.gradYear = gradYear;
             return this;
         }
 
         public Student build() {
-
             return new Student(this);
         }
     }

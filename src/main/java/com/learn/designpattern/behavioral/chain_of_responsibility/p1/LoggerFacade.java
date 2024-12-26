@@ -8,7 +8,7 @@ public final class LoggerFacade {
 		this.logger = chainLogger();
 	}
 	
-	private static class LoggerFacadeSingleton {
+	private static final class LoggerFacadeSingleton {
 		private static final LoggerFacade INSTANCE = new LoggerFacade();
 	}
 	
@@ -25,11 +25,11 @@ public final class LoggerFacade {
 		return infoLogger;
 	}
 	
-	public void debug(final String message){
-		logger.logMessage(LoggerLevel.DEBUG,message);
+	public void debug(final String message) {
+		logger.logMessage(LoggerLevel.DEBUG, message);
 	}
 	
-	public void info(final String message){
-		logger.logMessage(LoggerLevel.INFO,message);
+	public void info(final String message) {
+		logger.logMessage(LoggerLevel.INFO, message);
 	}
 }

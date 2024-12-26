@@ -2,7 +2,7 @@ package com.learn.designpattern.creational.prototype.p1;
 
 import com.learn.designpattern.creational.prototype.IPrototype;
 
-public class Student implements IPrototype<Student> {
+public final class Student implements IPrototype<Student> {
 
     private String studentName;
     private int studentId;
@@ -12,14 +12,12 @@ public class Student implements IPrototype<Student> {
     }
 
     public Student(String studentName, int studentId, int studentClass) {
-
         this.studentName = studentName;
         this.studentId = studentId;
         this.studentClass = studentClass;
     }
 
     private Student(Student student) {
-
         this.studentName = student.studentName;
         this.studentId = student.studentId;
         this.studentClass = student.studentClass;
@@ -27,7 +25,6 @@ public class Student implements IPrototype<Student> {
 
     @Override
     public Student getClone() {
-
         return new Student(this);
     }
 
