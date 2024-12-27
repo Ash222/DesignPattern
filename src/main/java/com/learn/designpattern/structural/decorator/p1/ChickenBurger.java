@@ -8,7 +8,7 @@ public class ChickenBurger extends AbsBurger {
 	}
 	
 	@Override
-	int burgerCost() {
+	protected int burgerCost() {
 		return 220;
 	}
 }

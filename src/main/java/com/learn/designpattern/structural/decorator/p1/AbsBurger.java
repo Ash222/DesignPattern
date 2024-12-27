@@ -22,7 +22,7 @@ public abstract class AbsBurger {
 	
 	abstract int burgerCost();
 	
-	int getBurgerId() {
+	protected int getBurgerId() {
 		return this.burgerId;
 	}
 }

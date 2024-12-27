@@ -2,7 +2,7 @@ package com.learn.designpattern.structural.decorator.p1;
 
 public class ExtraCheeseBurger extends AbsBurgerDecorator {
 	
-	public ExtraCheeseBurger(AbsBurger burger) {
+	public ExtraCheeseBurger(final AbsBurger burger) {
 		super(burger);
 	}
 	
