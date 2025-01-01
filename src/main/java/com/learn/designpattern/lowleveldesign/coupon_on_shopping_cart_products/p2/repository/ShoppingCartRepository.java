@@ -1,7 +1,8 @@
 package com.learn.designpattern.lowleveldesign.coupon_on_shopping_cart_products
 		.p2.repository;
 
-import com.learn.designpattern.lowleveldesign.coupon_on_shopping_cart_products.p2.model.dto.CartItem;
+import com.learn.designpattern.lowleveldesign.coupon_on_shopping_cart_products
+		.p2.model.dto.CartItem;
 
 import java.util.List;
 
