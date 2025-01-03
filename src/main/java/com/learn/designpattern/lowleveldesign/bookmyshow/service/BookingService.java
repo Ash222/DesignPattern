@@ -237,8 +237,8 @@ public class BookingService {
 		                    .build();
 	}
 	
-	public double totalPriceOfSeats(final long auditoriumId,
-			final long theatreId, final long movieId) {
+	public double totalPriceOfSeats(final long auditoriumId, final long theatreId,
+			final long movieId) {
 		
 		double totalPrice = 0;
 		
