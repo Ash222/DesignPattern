@@ -105,19 +105,16 @@ public class BookingService {
 		Lock Contention:
 			If multiple threads are accessing the same set of seats simultaneously,
 			frequent contention for locks may cause delays.
-			
-		Performance improvements :
-		Use the below code before the second for loop --
-			theatre.getReadLock().lock();
-	        try {
-	            for (final Seat seat : theatre.seatList()) {
-	                if (seat.getSeatAvailability() == SeatAvailability.AVAILABLE) {
-	                    availableSeatList.add(seat);
-	                }
-	            }
-	        } finally {
-	            theatre.getReadLock().unlock();
-	        }
+		Write Starvation:
+			If multiple threads are concurrently get the read lock then the thread waiting
+			for the write lock will have to wait infinitely.
+		
+		Advantages :
+		It avoids the problem where one thread could read an "in-between" state where a
+		seat is in the process of being booked but not yet fully marked as booked. The
+		below code correctly ensures that the application's view of seat availability is
+		consistent and accurate, even under high concurrency.
+
 	*/
 	public List<Seat> getAllSeatForSelectedAuditoriumAndMovie(
 			final long auditoriumId, final long movieId
@@ -127,17 +124,25 @@ public class BookingService {
 		
 		for (final Theatre theatre : auditoriumIdVsTheatreListMap.get(auditoriumId)) {
 			if (movieId == theatre.movie().movieId()) {
-				for (final Seat seat : theatre.seatList()) {
-					// Acquire read lock on the current seat
-					seat.getReadLock().lock();
-					try {
-						if (seat.getSeatAvailability() == SeatAvailability.AVAILABLE) {
-							availableSeatList.add(seat);
+				// acquire the theatre level lock
+				theatre.getReadLock().lock(); // necessary for theatre level
+				// modification, i.e., no adding or removing of seats
+				try {
+					for (final Seat seat : theatre.seatList()) {
+						// acquire read lock so that reading the seat will always be
+						// consistent no matter the number of users.
+						seat.getReadLock().lock();
+						try {
+							if (seat.getSeatAvailability() == SeatAvailability
+									.AVAILABLE) {
+								availableSeatList.add(seat);
+							}
+						} finally {
+							seat.getReadLock().unlock();
 						}
-					} finally {
-						// unlock the seat
-						seat.getReadLock().unlock();
 					}
+				} finally {
+					theatre.getReadLock().unlock();
 				}
 			}
 		}
@@ -171,8 +176,7 @@ public class BookingService {
 							if (seatId == seat.getSeatId()) {
 								// get exclusive lock on the seat to change the seat
 								// availability
-								if (seat.getWriteLock().tryLock(
-										2, TimeUnit.SECONDS
+								if (seat.getWriteLock().tryLock(2, TimeUnit.SECONDS
 								)) {
 									// track the locked seats to unlock them
 									lockedSeatList.add(seat);
@@ -221,8 +225,8 @@ public class BookingService {
 		                    .userId(user.userId())
 		                    .userName(user.userName())
 		                    .auditoriumId(auditoriumId)
-		                    .auditoriumName(bookingRepository
-				                                    .getAuditoriumName(auditoriumId)
+		                    .auditoriumName(
+									bookingRepository.getAuditoriumName(auditoriumId)
 		                    )
 		                    .seatList(bookedSeatIdList)
 		                    .ticketPrice(

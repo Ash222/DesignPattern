@@ -1,7 +1,6 @@
 package com.learn.designpattern.lowleveldesign.bookmyshow.model.entity;
 
-import com.learn.designpattern.lowleveldesign.bookmyshow.model
-		.enums.Feature;
+import com.learn.designpattern.lowleveldesign.bookmyshow.model.enums.Feature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ public final class Theatre {
 		this.seatList = seatList;
 		this.featureList = featureList;
 		this.price = price;
-		this.reentrantReadWriteLock = new ReentrantReadWriteLock();
+		this.reentrantReadWriteLock = new ReentrantReadWriteLock(true); // fair locking
 	}
 	
 	public long id() {
@@ -46,11 +45,11 @@ public final class Theatre {
 		return price;
 	}
 	
-	public ReentrantReadWriteLock.ReadLock getReadLock(){
+	public ReentrantReadWriteLock.ReadLock getReadLock() {
 		return reentrantReadWriteLock.readLock();
 	}
 	
-	public ReentrantReadWriteLock.WriteLock getWriteLock(){
+	public ReentrantReadWriteLock.WriteLock getWriteLock() {
 		return reentrantReadWriteLock.writeLock();
 	}
 	

@@ -4,4 +4,5 @@ public enum SeatAvailability {
 	AVAILABLE,
 	BOOKED,
 	UNDER_MAINTENANCE,
+	RESERVED,
 }

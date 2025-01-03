@@ -63,8 +63,8 @@ public class BookingRepository {
 		
 		// theatres
 		Theatre t1 = new Theatre(1, m1, List.of(s1, s2, s3, s4, s5, s6, s7),
-		                         List.of(Feature.TWO_D, Feature.THREE_D,
-		                                 Feature.DOLBY), 10);
+		                         List.of(Feature.TWO_D, Feature.THREE_D, Feature.DOLBY),
+		                         10);
 		Theatre t2 = new Theatre(2, m3, List.of(s1, s2, s3, s4, s5),
 		                         List.of(Feature.TWO_D, Feature.DOLBY), 8);
 		Theatre t3 = new Theatre(3, m4, List.of(s1, s2, s3, s4, s5, s6, s7),
@@ -72,11 +72,11 @@ public class BookingRepository {
 		Theatre t4 = new Theatre(1, m6, List.of(s1, s2, s3, s4, s5),
 		                         List.of(Feature.TWO_D), 4);
 		Theatre t5 = new Theatre(2, m2, List.of(s1, s2, s3, s4, s5, s6, s7),
-		                         List.of(Feature.TWO_D, Feature.THREE_D,
-		                                 Feature.DOLBY), 11);
+		                         List.of(Feature.TWO_D, Feature.THREE_D, Feature.DOLBY),
+		                         11);
 		Theatre t6 = new Theatre(1, m5, List.of(s1, s2, s3, s4, s5, s6, s7),
-		                         List.of(Feature.TWO_D, Feature.THREE_D,
-		                                 Feature.DOLBY), 10);
+		                         List.of(Feature.TWO_D, Feature.THREE_D, Feature.DOLBY),
+		                         10);
 		
 		// auditorium
 		Auditorium a1 = new Auditorium(1, "auditorium1",

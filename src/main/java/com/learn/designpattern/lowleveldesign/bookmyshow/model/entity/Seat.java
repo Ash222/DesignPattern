@@ -18,7 +18,7 @@ public final class Seat {
 		this.seatId = seatId;
 		this.seatType = seatType;
 		this.seatAvailability = seatAvailability;
-		this.reentrantReadWriteLock = new ReentrantReadWriteLock();
+		this.reentrantReadWriteLock = new ReentrantReadWriteLock(true); // fair locking
 	}
 	
 	public long getSeatId() {
@@ -41,9 +41,7 @@ public final class Seat {
 	}
 	
 	// Only one thread can get exclusive lock (read-write lock)
-	public void setSeatAvailability(
-			final SeatAvailability seatAvailability
-	) {
+	public void setSeatAvailability(final SeatAvailability seatAvailability) {
 		reentrantReadWriteLock.writeLock().lock();
 		try {
 			this.seatAvailability = seatAvailability;
@@ -53,12 +51,12 @@ public final class Seat {
 	}
 	
 	// Get read lock on seat (shared lock)
-	public ReentrantReadWriteLock.ReadLock getReadLock(){
+	public ReentrantReadWriteLock.ReadLock getReadLock() {
 		return reentrantReadWriteLock.readLock();
 	}
 	
 	// Get read-write lock (exclusive lock)
-	public ReentrantReadWriteLock.WriteLock getWriteLock(){
+	public ReentrantReadWriteLock.WriteLock getWriteLock() {
 		return reentrantReadWriteLock.writeLock();
 	}
 	
