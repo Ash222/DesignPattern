@@ -16,7 +16,6 @@ public class Main {
 	}
 	
 	private static void display(final IRobotFlyWeight robot) {
-		
 		for (int i = 0; i < 10; i++, x++) {
 			robot.display(x, x);
 		}

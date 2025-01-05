@@ -18,7 +18,6 @@ public class RobotFactory {
 			final Robot robot;
 			
 			switch (robotType) {
-				
 				case "HUMANOID", "DOG" -> robot = new Robot(robotType, looks);
 				default -> {
 					robotType = "DEFAULT";

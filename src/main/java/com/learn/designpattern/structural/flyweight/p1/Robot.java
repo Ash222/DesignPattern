@@ -16,7 +16,7 @@ public class Robot implements IRobotFlyWeight {
 	
 	@Override
 	public void display(final int x, final int y) {
-		System.out.println(
-				"Coordinates ::: (" + x + "," + y + ") :: type ::: " + this.type);
+		System.out.println("Coordinates ::: (" + x + "," + y + ") :: type ::: "
+				                   + this.type);
 	}
 }

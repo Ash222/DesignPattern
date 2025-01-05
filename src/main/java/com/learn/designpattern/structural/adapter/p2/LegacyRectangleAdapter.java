@@ -11,10 +11,8 @@ public final class LegacyRectangleAdapter implements IShape {
 	
 	@Override
 	public void draw(final int x, final int y, final int width, final int height) {
-		
 		final int x2 = x + width;
 		final int y2 = y + height;
-		
 		this.legacyRectangle.drawRectangle(x, y, x2, y2);
 	}
 }
