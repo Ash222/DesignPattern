@@ -8,7 +8,7 @@ public class Board {
 	private final List<List<Cell>> matrix;
 	private final int dimension;
 	
-	public Board(int dimension) {
+	public Board(final int dimension) {
 		
 		this.dimension = dimension;
 		this.matrix = new ArrayList<>();
@@ -33,7 +33,6 @@ public class Board {
 	public void displayBoard() {
 		
 		for (int i = 0; i < matrix.size(); i++) {
-			
 			for (int j = 0; j < matrix.size(); j++) {
 				if (matrix.get(i).get(j).getCellState().equals(CellState.EMPTY)) {
 					System.out.print("|   |");
@@ -48,10 +47,8 @@ public class Board {
 	}
 	
 	public void applyMove(final Move move) {
-		
 		int row = move.getCell().getRow();
 		int column = move.getCell().getColumn();
-		
 		this.getMatrix().get(row).get(column).setCellState(CellState.FILLED);
 		this.getMatrix().get(row).get(column).setPlayer(move.getPlayer());
 	}

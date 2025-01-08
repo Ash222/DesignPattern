@@ -24,23 +24,23 @@ public class GameController {
 				.setGameWinningStrategy(gameWinningStrategy).build();
 	}
 	
-	public void undo(final Game game) {
+	private void undo(final Game game) {
 		game.undoMove();
 	}
 	
-	public void executeNextMove(final Game game) {
+	private void executeNextMove(final Game game) {
 		game.executeNextMove();
 	}
 	
-	public Player getWinner(final Game game) {
+	private Player getWinner(final Game game) {
 		return game.getWinningPlayer();
 	}
 	
-	public GameState getGameState(final Game game) {
+	private GameState getGameState(final Game game) {
 		return game.getGameState();
 	}
 	
-	public void displayBoard(final Game game) {
+	private void displayBoard(final Game game) {
 		game.getBoard().displayBoard();
 	}
 	

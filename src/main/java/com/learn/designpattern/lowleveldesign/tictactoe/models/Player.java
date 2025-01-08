@@ -11,14 +11,15 @@ public class Player {
 	private final char symbol;
 	private final PlayerType playerType;
 	
-	public Player(int id, String name, char symbol) {
+	public Player(final int id, final String name, final char symbol) {
 		this.id = id;
 		this.name = name;
 		this.symbol = symbol;
 		this.playerType = PlayerType.HUMAN;
 	}
 	
-	public Player(int id, String name, char symbol, PlayerType playerType) {
+	public Player(final int id, final String name, final char symbol,
+			final PlayerType playerType) {
 		this.id = id;
 		this.name = name;
 		this.symbol = symbol;
@@ -56,16 +57,17 @@ public class Player {
 			
 			if (row >= dimension || column >= dimension) {
 				throw new InvalidMoveException("Dimension is :: " + dimension +
-						", but provided row is " + row + " and column is " + column);
+						                               ", but provided row is " + row +
+						                               " and column is " + column);
 			}
 			
 			if (board.getMatrix().get(row).get(column).getCellState().
-					equals(CellState.FILLED)) {
+			         equals(CellState.FILLED)) {
 				throw new InvalidMoveException("Given move is invalid as the cell at ("
-						+ row + "," + column + ") isn't empty");
+						                               + row + "," + column +
+						                               ") isn't empty");
 			}
 		} catch (InvalidMoveException e) {
-			
 			e.printStackTrace();
 			return null;
 		}

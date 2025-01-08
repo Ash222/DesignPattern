@@ -19,8 +19,7 @@ public class Game {
 	private Game() {
 	}
 	
-	public Game(GameBuilder gameBuilder) {
-		
+	public Game(final GameBuilder gameBuilder) {
 		this.playerList = new ArrayList<>(gameBuilder.getPlayerList());
 		this.board = new Board(gameBuilder.getDimension());
 		this.gameState = GameState.IN_PROGRESS;
@@ -54,11 +53,11 @@ public class Game {
 		return winningPlayer;
 	}
 	
-	public void setGameState(GameState gameState) {
+	public void setGameState(final GameState gameState) {
 		this.gameState = gameState;
 	}
 	
-	public void setWinningPlayer(Player winningPlayer) {
+	public void setWinningPlayer(final Player winningPlayer) {
 		this.winningPlayer = winningPlayer;
 	}
 	
@@ -122,8 +121,7 @@ public class Game {
 			this.setGameState(GameState.DRAW);
 		}
 		
-		this.nextPlayerIndex = this.nextPlayerIndex + 1;
-		this.nextPlayerIndex = this.nextPlayerIndex % this.playerList.size();
+		this.nextPlayerIndex = (this.nextPlayerIndex + 1) % this.playerList.size();
 	}
 	
 	// check the status of the board if the board is in "DRAW" state
@@ -132,7 +130,6 @@ public class Game {
 		int dimension = this.board.getDimension();
 		
 		for (int row = 0; row < dimension; row++) {
-			
 			for (int column = 0; column < dimension; column++) {
 				if (this.board.getMatrix().get(row).get(column).getCellState()
 						.equals(CellState.EMPTY)) {

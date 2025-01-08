@@ -6,9 +6,13 @@ import com.learn.designpattern.lowleveldesign.tictactoe.strategy.botplaying.Easy
 
 public class BotPlayingFactory {
 	
-	public static IBotPlayingStrategy getFactory(final BotDifficultyLevel botDifficultyLevel){
+	private BotPlayingFactory() {
+	}
+	
+	public static IBotPlayingStrategy getFactory(
+			final BotDifficultyLevel botDifficultyLevel) {
 		
-		if(botDifficultyLevel.equals(BotDifficultyLevel.EASY)){
+		if (botDifficultyLevel.equals(BotDifficultyLevel.EASY)) {
 			return new EasyBotPlayingStrategy();
 		}
 		

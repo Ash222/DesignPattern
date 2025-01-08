@@ -5,9 +5,12 @@ import com.learn.designpattern.lowleveldesign.tictactoe.strategy.gamewinning.Row
 
 public class WinStrategyFactory {
 	
-	public static IGameWinningStrategy getFactory(final String strategy){
+	private WinStrategyFactory() {
+	}
+	
+	public static IGameWinningStrategy getFactory(final String strategy) {
 		
-		if(strategy.equalsIgnoreCase("row")){
+		if (strategy.equalsIgnoreCase("row")) {
 			return new RowColumnDiagonalWinningStrategy();
 		}
 		

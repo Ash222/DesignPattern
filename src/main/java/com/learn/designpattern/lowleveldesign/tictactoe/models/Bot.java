@@ -7,13 +7,14 @@ public class Bot extends Player {
 	
 	private final IBotPlayingStrategy botPlayingStrategy;
 	
-	public Bot(int id, String name, char symbol, BotDifficultyLevel botDifficultyLevel) {
+	public Bot(final int id, final String name, final char symbol,
+			final BotDifficultyLevel botDifficultyLevel) {
 		super(id, name, symbol, PlayerType.BOT);
 		this.botPlayingStrategy = BotPlayingFactory.getFactory(botDifficultyLevel);
 	}
 	
 	@Override
-	public Move makeMove(Board board) {
+	public Move makeMove(final Board board) {
 		return botPlayingStrategy.move(this, board);
 	}
 }

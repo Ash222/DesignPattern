@@ -16,12 +16,9 @@ public class EasyBotPlayingStrategy implements IBotPlayingStrategy {
 		int dimension = board.getDimension();
 		
 		for (int row = 0; row < dimension; row++) {
-			
 			for (int column = 0; column < dimension; column++) {
-				
 				if (board.getMatrix().get(row).get(column).getCellState()
 						.equals(CellState.EMPTY)) {
-					
 					return new Move(player, new Cell(row, column));
 				}
 			}
