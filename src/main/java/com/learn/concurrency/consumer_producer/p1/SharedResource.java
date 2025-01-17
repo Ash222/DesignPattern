@@ -1,0 +1,53 @@
+package com.learn.concurrency.consumer_producer.p1;
+
+import java.util.concurrent.Semaphore;
+
+public final class SharedResource {
+	
+	private static final Semaphore producerSemaphore;
+	private static final Semaphore consumerSemaphore;
+	private static volatile int count;
+	
+	private SharedResource() {
+	}
+	
+	static {
+		producerSemaphore = new Semaphore(1);
+		consumerSemaphore = new Semaphore(0);
+		count = 0;
+	}
+	
+	public static void produce() {
+		
+		try {
+			System.out.println("producer thread waiting for the lock");
+			producerSemaphore.acquire();
+			System.out.println("producer thread has acquired the lock");
+			for (int i = 0; i < 5; i++) {
+				System.out.println("producer increments the count :: " + ++count);
+				Thread.sleep(1000); // producer thread sleeps for 1s
+			}
+		} catch (InterruptedException e) {
+			System.out.println("producer throws error");
+		} finally {
+			consumerSemaphore.release();
+		}
+	}
+	
+	public static void consume() {
+		
+		try {
+			System.out.println("consumer thread waiting for the lock");
+			consumerSemaphore.acquire();
+			System.out.println("consumer thread has acquired the lock");
+			for (int i = 0; i < 5; i++) {
+				System.out.println("consumer get the count :: " + count);
+				Thread.sleep(1000); // consumer thread sleeps for 1s
+			}
+		} catch (InterruptedException e) {
+			System.out.println("consumer throws error");
+		} finally {
+			producerSemaphore.release();
+		}
+	}
+}
