@@ -1,6 +1,5 @@
 package com.learn.concurrency.consumer_producer.p2;
 
-
 public final class SharedResources {
 	
 	// this is the resource that both producer and consumer thread will access
