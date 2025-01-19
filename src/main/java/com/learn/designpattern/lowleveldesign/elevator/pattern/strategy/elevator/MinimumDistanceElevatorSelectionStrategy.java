@@ -19,8 +19,10 @@ public class MinimumDistanceElevatorSelectionStrategy implements
 		
 		for (final ElevatorThreadTask elevatorTask : elevatorThreadTaskList) {
 			
-			if (elevatorTask.getElevator().getDisplay().getMovingDirection() !=
-					movingDirection) {
+			final MovingDirection elevatorDirection = elevatorTask.getElevator()
+			                                                      .getDisplay()
+			                                                      .getMovingDirection();
+			if (elevatorDirection != movingDirection) {
 				continue;
 			}
 			
