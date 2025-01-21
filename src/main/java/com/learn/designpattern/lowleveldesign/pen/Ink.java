@@ -2,10 +2,10 @@ package com.learn.designpattern.lowleveldesign.pen;
 
 public class Ink {
 	
-	private String color;
-	private InkType inkType;
+	private final String color;
+	private final InkType inkType;
 	
-	public Ink(String color, InkType inkType) {
+	public Ink(final String color, final InkType inkType) {
 		this.color = color;
 		this.inkType = inkType;
 	}

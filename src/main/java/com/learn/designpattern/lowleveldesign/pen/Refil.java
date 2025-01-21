@@ -2,10 +2,10 @@ package com.learn.designpattern.lowleveldesign.pen;
 
 public class Refil {
 	
-	private Nib nib;
-	private Ink ink;
+	private final Nib nib;
+	private final Ink ink;
 	
-	public Refil(Nib nib, Ink ink) {
+	public Refil(final Nib nib, final Ink ink) {
 		this.nib = nib;
 		this.ink = ink;
 	}

@@ -2,13 +2,13 @@ package com.learn.designpattern.lowleveldesign.pen;
 
 public class Pen {
 	
-	private String name;
-	private String brandName;
-	private int price;
-	private IWriteStrategy writeStrategy;
+	private final String name;
+	private final String brandName;
+	private final int price;
+	private final IWriteStrategy writeStrategy;
 	
-	public Pen(String name, String brandName, int price,
-	           IWriteStrategy writeStrategy) {
+	public Pen(final String name, final String brandName, final int price,
+			IWriteStrategy writeStrategy) {
 		this.name = name;
 		this.brandName = brandName;
 		this.price = price;
@@ -31,7 +31,7 @@ public class Pen {
 		return writeStrategy;
 	}
 	
-	public void write(){
+	public void write() {
 		this.writeStrategy.write();
 	}
 	

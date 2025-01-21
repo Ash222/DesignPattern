@@ -2,11 +2,11 @@ package com.learn.designpattern.lowleveldesign.pen;
 
 public class FountainPen extends Pen {
 	
-	private Nib nib;
-	private Ink ink;
+	private final Nib nib;
+	private final Ink ink;
 	
-	public FountainPen(Nib nib, Ink ink, String name, String brandName, int price,
-	                   IWriteStrategy writeStrategy) {
+	public FountainPen(final Nib nib, final Ink ink, final String name,
+			final String brandName, final int price, final IWriteStrategy writeStrategy) {
 		super(name, brandName, price, writeStrategy);
 		this.nib = nib;
 		this.ink = ink;

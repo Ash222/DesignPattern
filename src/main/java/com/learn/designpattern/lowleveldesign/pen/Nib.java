@@ -2,9 +2,9 @@ package com.learn.designpattern.lowleveldesign.pen;
 
 public class Nib {
 	
-	private int radius;
+	private final int radius;
 	
-	public Nib(int radius) {
+	public Nib(final int radius) {
 		this.radius = radius;
 	}
 	

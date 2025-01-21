@@ -2,10 +2,10 @@ package com.learn.designpattern.lowleveldesign.pen;
 
 public class GelPen extends Pen {
 	
-	private Refil refil;
+	private final Refil refil;
 	
-	public GelPen(Refil refil, String name, String brandName, int price,
-	              IWriteStrategy writeStrategy) {
+	public GelPen(final Refil refil, final String name, final String brandName,
+			final int price, final IWriteStrategy writeStrategy) {
 		super(name, brandName, price, writeStrategy);
 		this.refil = refil;
 	}
