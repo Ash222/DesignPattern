@@ -13,8 +13,7 @@ public final class Seat {
 	private SeatAvailability seatAvailability;
 	private final ReentrantReadWriteLock reentrantReadWriteLock;
 	
-	public Seat(long seatId, SeatType seatType,
-			SeatAvailability seatAvailability) {
+	public Seat(long seatId, SeatType seatType, SeatAvailability seatAvailability) {
 		this.seatId = seatId;
 		this.seatType = seatType;
 		this.seatAvailability = seatAvailability;
@@ -31,7 +30,6 @@ public final class Seat {
 	
 	// Only concurrent read are valid (shared lock)
 	public SeatAvailability getSeatAvailability() {
-		
 		reentrantReadWriteLock.readLock().lock();
 		try {
 			return seatAvailability;
