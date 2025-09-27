@@ -12,7 +12,7 @@ public final class PersonBuilderImpl implements
 	private int aadharNumber;
 	private String gender;
 	
-	public PersonBuilderImpl() {
+	public PersonBuilderImpl() { // NOSONAR
 	}
 	
 	public String getName() {

@@ -21,13 +21,9 @@ public final class Student {
 	
 	@Override
 	public String toString() {
-		
-		final StringBuffer sb = new StringBuffer("Student{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", age=").append(age).append('\'');
-		sb.append(", address='").append(address).append('\'');
-		sb.append('}');
-		
-		return sb.toString();
+		return "Student{" + "name='" + name + '\'' +
+				", age=" + age + '\'' +
+				", address='" + address + '\'' +
+				'}';
 	}
 }

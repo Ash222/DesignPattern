@@ -10,6 +10,6 @@ public class Main {
 		                              .setAadharNumber(123423423)
 		                              .build();
 		
-		System.out.println("Main :: main :: person ::: " + person);
+		System.out.println("Main :: main :: person ::: " + person); // NOSONAR
 	}
 }

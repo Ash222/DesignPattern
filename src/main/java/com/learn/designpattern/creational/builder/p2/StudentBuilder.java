@@ -6,7 +6,7 @@ public final class StudentBuilder {
 	private int age;
 	private String address;
 	
-	public StudentBuilder() {
+	public StudentBuilder() { // NOSONAR
 	}
 	
 	public String getAddress() {

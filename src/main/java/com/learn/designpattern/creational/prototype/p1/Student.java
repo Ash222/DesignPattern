@@ -30,13 +30,9 @@ public final class Student implements IPrototype<Student> {
 
     @Override
     public String toString() {
-
-        final StringBuffer sb = new StringBuffer("Student{");
-        sb.append("studentName='").append(studentName).append('\'');
-        sb.append(", studentId=").append(studentId);
-        sb.append(", studentClass=").append(studentClass);
-        sb.append('}');
-
-        return sb.toString();
+	    return "Student{" + "studentName='" + studentName + '\'' +
+			    ", studentId=" + studentId +
+			    ", studentClass=" + studentClass +
+			    '}';
     }
 }

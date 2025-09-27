@@ -12,7 +12,6 @@ public class Person {
     }
 
     public Person(final PersonBuilderImpl personBuilder) {
-
         this.name = personBuilder.getName();
         this.address = personBuilder.getAddress();
         this.phoneNumber = personBuilder.getPhoneNumber();
@@ -22,15 +21,11 @@ public class Person {
 
     @Override
     public String toString() {
-
-        final StringBuffer sb = new StringBuffer("Person{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", address='").append(address).append('\'');
-        sb.append(", aadharNumber='").append(aadharNumber).append('\'');
-        sb.append(", phoneNumber='").append(phoneNumber).append('\'');
-        sb.append(", gender='").append(gender).append('\'');
-        sb.append('}');
-
-        return sb.toString();
+	    return "Person{" + "name='" + name + '\'' +
+			    ", address='" + address + '\'' +
+			    ", aadharNumber='" + aadharNumber + '\'' +
+			    ", phoneNumber='" + phoneNumber + '\'' +
+			    ", gender='" + gender + '\'' +
+			    '}';
     }
 }
